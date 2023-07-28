@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client"
 
-let heading1 = React.createElement("h1",{id:"first"},"Heading1");
+let heading1 = React.createElement("h1",{id:"first",key:"h1"},"Heading1");
 
-let heading2 = React.createElement("h2",{id:"second"},"Heading2");
+let heading2 = React.createElement("h2",{id:"second",key:"h2"},"Heading2");
 
 let container = React.createElement("div",{id:"containerDiv"},[heading1,heading2]);
 

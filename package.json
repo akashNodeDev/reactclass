@@ -2,8 +2,9 @@
   "name": "reactclass",
   "version": "1.0.0",
   "description": "About initialization of the application",
-  "main": "app.js",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
@@ -21,7 +22,9 @@
   },
   "homepage": "https://github.com/akashNodeDev/reactclass#readme",
   "devDependencies": {
-    "parcel": "^2.9.3"
+    "@babel/core": "^7.22.9",
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
   },
   "dependencies": {
     "react": "^18.2.0",
