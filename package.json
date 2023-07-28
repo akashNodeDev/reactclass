@@ -1,0 +1,30 @@
+{
+  "name": "reactclass",
+  "version": "1.0.0",
+  "description": "About initialization of the application",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akashNodeDev/reactclass.git"
+  },
+  "keywords": [
+    "First",
+    "APP"
+  ],
+  "author": "Akash Agrawal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akashNodeDev/reactclass/issues"
+  },
+  "homepage": "https://github.com/akashNodeDev/reactclass#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
