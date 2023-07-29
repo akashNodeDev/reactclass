@@ -1,13 +1,44 @@
 import React from "react";
 import ReactDOM from "react-dom/client"
 
-let heading1 = React.createElement("h1",{id:"first",key:"h1"},"Heading1");
+//  React Element Example
 
-let heading2 = React.createElement("h2",{id:"second",key:"h2"},"Heading2");
+const titlelement = (
+    <h1>Hello World</h1>
+)
 
-let container = React.createElement("div",{id:"containerDiv"},[heading1,heading2]);
+const FirstComponent = () => {
+   return ( 
+        <div>
+            {titlelement}
+            <h2>Hello</h2>
+        </div>
+    )
+}
+
+// First way of calling a componenet inside another component. we can use the angle bracket for it.
+
+const SecondComponent = () => {
+    return (
+    <div>
+        <FirstComponent/>
+    </div>
+    )
+}
+
+// Second way of calling a componenet inside another component is inside the curly  braces with the parenthesis.
+
+const FinalComponent = () => 
+     (
+        <div>
+            {SecondComponent()}
+        </div>
+        
+    )
+
+// In the FinalComponenet code we have not used the return keyword and the curly braces to return the code. This is also valid code. New way of writing the JS.
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(container);
+root.render(<FinalComponent />);
 
