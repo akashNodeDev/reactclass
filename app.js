@@ -1,44 +1,112 @@
 import React from "react";
 import ReactDOM from "react-dom/client"
 
-//  React Element Example
-
-const titlelement = (
-    <h1>Hello World</h1>
-)
-
-const FirstComponent = () => {
-   return ( 
-        <div>
-            {titlelement}
-            <h2>Hello</h2>
-        </div>
-    )
-}
-
-// First way of calling a componenet inside another component. we can use the angle bracket for it.
-
-const SecondComponent = () => {
+const Title = () => {
     return (
-    <div>
-        <FirstComponent/>
-    </div>
+        <a href="/">
+            <img alt="logo" className="logo" src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9AIyWJnv-qeoSVFHoDSoWPoYpqTm_vWoxcg&usqp=CAU" />
+        </a>
     )
 }
 
-// Second way of calling a componenet inside another component is inside the curly  braces with the parenthesis.
-
-const FinalComponent = () => 
-     (
-        <div>
-            {SecondComponent()}
+const Header = () => {
+    return (
+        <div className="header">
+            <Title/>
+            <div className="nav-item">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                    <li>Cart</li>
+                </ul>
+            </div>
         </div>
-        
     )
+}
 
-// In the FinalComponenet code we have not used the return keyword and the curly braces to return the code. This is also valid code. New way of writing the JS.
+const burgerKing = {
+    name:"Domino's",
+    image:"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/be66rnc0tj2jgdadiviu",
+    cusines:["Burger","American"],
+    rating:"4.2"
+}
+
+const ResturantCard = () => {
+    return (
+        <div className="card">
+            <img src={burgerKing.image}/>
+            <h2>{burgerKing.name}</h2>
+            <h3>{burgerKing.cusines.join(", ")}</h3>
+            <h4>{burgerKing.rating} Stars</h4>
+        </div>
+    )
+}
+
+const Body = () => {
+    return (
+        <div className="resturantList">
+            <ResturantCard/>
+            <ResturantCard/>
+            <ResturantCard/>
+            <ResturantCard/>
+            <ResturantCard/>
+            <ResturantCard/>
+            <ResturantCard/>
+            <ResturantCard/>
+            <ResturantCard/>
+            <ResturantCard/>
+            <ResturantCard/>
+            <ResturantCard/>
+            <ResturantCard/>
+            <ResturantCard/>
+            <ResturantCard/>
+            <ResturantCard/>
+            <ResturantCard/>
+            <ResturantCard/>
+            <ResturantCard/>
+            <ResturantCard/>
+        </div>
+    )
+}
+
+const Footer = () => {
+    return (
+        <h4>Footer</h4>
+    )
+}
+
+const AppLayout = () => {
+    return (
+        <>
+          {
+            /**
+             * Header
+             *  - Logo
+             *  - Nav Items(Right Side)
+             *  - Cart
+             * Body
+             *  - Search Bar
+             *  - ResturantList
+             *      - Resturant Card
+             *          - Image
+             *          - Name
+             *          - Rating
+             *          - Cusines
+             * Footer
+             *  - Links
+             *  - Copyright
+             * 
+             */
+        }
+        <Header/>
+        <Body/>
+        <Footer/>
+        </>
+    )
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<FinalComponent />);
+root.render(<AppLayout />);
 
