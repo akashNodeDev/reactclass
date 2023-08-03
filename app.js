@@ -375,12 +375,12 @@ const resturantData = [
   },
 ];
 
-const ResturantCard = ({name,cuisines,avgRating}) => {
+const ResturantCard = ({name,cuisines,avgRating,cloudinaryImageId}) => {
   //  console.log("Props=",props)
  
   return (
     <div className="card">
-      {/* <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId} /> */}
+      <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId} />
       <h2>{name}</h2>
       <h3>{cuisines.join(", ")}</h3>
       <h4>{avgRating} Stars</h4>
@@ -391,10 +391,10 @@ const ResturantCard = ({name,cuisines,avgRating}) => {
 const Body = () => {
   return (
     <div className="resturant-list">
-      <ResturantCard name={resturantData[0].info.name} cuisines={resturantData[0].info.cuisines} avgRating={resturantData[0].info.avgRating}/>
-      {/* <ResturantCard {...resturantData[1].info}/>
+      <ResturantCard {...resturantData[0].info}/>
+      <ResturantCard {...resturantData[1].info}/>
       <ResturantCard {...resturantData[2].info}/>
-      <ResturantCard {...resturantData[3].info}/> */}
+      <ResturantCard {...resturantData[3].info}/>
     </div>
   );
 };
