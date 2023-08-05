@@ -1,36 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const Title = () => {
-  return (
-    <a href="/">
-      <img
-        alt="logo"
-        className="logo"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9AIyWJnv-qeoSVFHoDSoWPoYpqTm_vWoxcg&usqp=CAU"
-      />
-    </a>
-  );
-};
-
-const Header = () => {
-  return (
-    <div className="header">
-      <Title />
-      <div className="nav-item">
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
+export const IMG_CDN_URL =  "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
 
 // Config Driven API
-const resturantData = [
+export const resturantData = [
   {
     info: {
       id: "225212",
@@ -374,68 +345,3 @@ const resturantData = [
     widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
   },
 ];
-
-const ResturantCard = ({ name, cuisines, avgRating, cloudinaryImageId }) => {
-  //  console.log("Props=",props)
-
-  return (
-    <div className="card">
-      <img
-        src={
-          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
-      />
-      <h2>{name}</h2>
-      <h3>{cuisines.join(", ")}</h3>
-      <h4>{avgRating} Stars</h4>
-    </div>
-  );
-};
-
-const Body = () => {
-  return (
-    <div className="resturant-list">
-      {resturantData.map((resturant) => {
-        return <ResturantCard {...resturant.info} key={resturant.info.id} />;
-       })
-      } 
-    </div>
-  );
-};
-
-const Footer = () => {
-  return <h4>Footer</h4>;
-};
-
-const AppLayout = () => {
-  return (
-    <>
-      {/**
-       * Header
-       *  - Logo
-       *  - Nav Items(Right Side)
-       *  - Cart
-       * Body
-       *  - Search Bar
-       *  - ResturantList
-       *      - Resturant Card
-       *          - Image
-       *          - Name
-       *          - Rating
-       *          - Cusines
-       * Footer
-       *  - Links
-       *  - Copyright
-       *
-       */}
-      <Header />
-      <Body />
-      <Footer />
-    </>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout />);
