@@ -1,20 +1,41 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { resturantData } from "../constants";
 import ResturantCard from "./ResturantCard";
-import { useState } from "react";
+import Shimmer from "./Shimmer";
+import { useState,useEffect } from "react";
 
 const Body = () => {
   //let searchTxt = "KFC"
 
   const [searchInput,setSearchInput] = useState("KFC");
-  const [resturants,setResturants] = useState(resturantData)
+  const [resturants,setResturants] = useState([])
+
+  // Empty Dependy Array : Once After Render
+  // Dependency Array[serchText] : Once after initial render + Everytime after render (my searchText changes)
+
+  useEffect(()=>{
+    // API Call
+    getRestaurants();
+  },[]);
+
+  async function getRestaurants () {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5971854&lng=88.43705849999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    console.log(json);
+    // Conditional chaining
+    setResturants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+  }
+
+  console.log("render");
 
   function filterResturant(searchInput,resturants) {
     let data = resturants.filter((res)=> (res.info.name.includes(searchInput)))
     return data;
   }
 
-  return (
+  return (resturants.length === 0) ? <Shimmer/> : (
     <>
       <div className="search-container">
         <input
