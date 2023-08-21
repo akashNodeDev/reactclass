@@ -25,13 +25,13 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5971854&lng=88.43705849999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log("check=",json);
+   // console.log("check=",json);
     // Conditional chaining
     setAllResturants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     setFilteredResturants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   }
 
-  console.log("render");
+ // console.log("render");
 
   function filterData(searchInput,resturants) {
     let data = resturants.filter((res)=> (res?.info?.name?.toLowerCase().includes(searchInput.toLowerCase())))
